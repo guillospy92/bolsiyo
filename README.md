@@ -5,7 +5,7 @@
 ### configuracion inicial
 - crear un archivo llamado .env con las mismas variables que tiene el archivo .env.example que se encuentra 
 en la raiz del proyecto
-- correr el comando ``` npm run install ```
+- correr el comando ``` npm install ```
 
 ### configuracion base de datos
 para crear la base de datos se puede hacer de dos formas
