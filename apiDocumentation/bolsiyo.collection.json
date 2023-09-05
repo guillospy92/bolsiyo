@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "1f5a9394-6e0c-4778-beb0-aa9b313cd9f6",
+		"name": "bolsiyo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "643430"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Guillermo romo\",\n    \"email\" : \"bolsiyo@gmail.com\",\n    \"password\" : \"hoy_es_un_bonito_dia\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "guarda un usuario a la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"bolsiyo@gmail.com\",\n    \"password\" : \"hoy_es_un_bonito_dia\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "adquire un token para operar sobre la api"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/categories/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"ejemplo\",\n    \"businessId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/categories/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categories",
+						""
+					]
+				},
+				"description": "guarda una categoria"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/categories/5",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/categories/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categories",
+						"5"
+					]
+				},
+				"description": "elimina una categoria"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/categories/business/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/categories/business/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"categories",
+						"business",
+						"1"
+					]
+				},
+				"description": "obtener todas las categorias por un negocio"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Leche Coco\",\n    \"purchasePrice\" : 10564.34,\n    \"salePrice\" : 15389.34,\n    \"stock\" : 1,\n    \"businessId\" : 1,\n    \"categoryId\" : 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				},
+				"description": "guardar un producto"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Huevos 250\",\n    \"purchasePrice\" : 10564.34,\n    \"salePrice\" : 15389.34\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"1"
+					]
+				},
+				"description": "actualizar un producto"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products/4",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/products/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"4"
+					]
+				},
+				"description": "elimina un producto"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products/business/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/products/business/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"business",
+						"1"
+					]
+				},
+				"description": "obtiene los productos por un negocio"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products/3/stock",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"stock\" : 25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/products/3/stock",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"3",
+						"stock"
+					]
+				},
+				"description": "actualiza el stock de un producto"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/reports/products?startDate=2023-05-09&endDate=2023-09-30",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/reports/products?startDate=2023-05-09&endDate=2023-09-30",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reports",
+						"products"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2023-05-09"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-09-30"
+						}
+					]
+				},
+				"description": "reporte de productos y categorias"
+			},
+			"response": []
+		}
+	]
+}
