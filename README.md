@@ -37,8 +37,12 @@ de datos MYSQL, este ya tiene datos poblados
 - servicio de eliminar un producto **DEL localhost:3000/products/**
 - servicio de actualizar un producto **PUT localhost:3000/products/**
 - servicio de actualizar el stock de un producto **PUT localhost:3000/products/stock**
+  - la trasa del los historiales del stock se guardan en la tabla trace_products 
 - servicio de listar productos por negocio **GET localhost:3000/products/business/1**
 
 ### modulo de reportes
 - servico de reporte de productos **GET localhost:3000/reports/products?startDate=2023-05-09&endDate=2023-09-30**
+
+### correr los test
+``` npm run test ```
 
