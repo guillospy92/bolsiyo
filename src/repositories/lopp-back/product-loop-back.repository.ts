@@ -34,11 +34,15 @@ export class ProductLoopBackRepository extends DefaultCrudRepository<
     return this.delete(productEntity);
   }
 
-  listProductByBusiness(businessId: number): Promise<ProductDto[]> {
-    return this.find({
+  async listProductByBusiness(businessId: number): Promise<ProductDto[]> {
+    const products =  await this.find({
       where: {
         businessId: businessId,
       },
+    });
+
+    return products.map((product) => {
+      return {...product};
     });
   }
 

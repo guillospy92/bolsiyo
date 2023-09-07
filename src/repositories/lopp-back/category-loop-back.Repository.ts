@@ -9,7 +9,7 @@ export class CategoryLoopBackRepository extends DefaultCrudRepository<
   CategoryModel,
   typeof CategoryDto.prototype.id,
   CategoryRelations
-> implements CategoryRepositoryInterface{
+> implements CategoryRepositoryInterface {
   constructor(
     @inject('datasources.connection_mysql') dataSource: ConnectionMysqlDataSource,
   ) {
@@ -21,17 +21,21 @@ export class CategoryLoopBackRepository extends DefaultCrudRepository<
   }
 
   async listCategoryByBusiness(businessId: number): Promise<CategoryDto[]> {
-    return this.find({
+    const categories = await this.find({
       where: {
         businessId: businessId,
       },
+    });
+
+    return categories.map((category) => {
+      return {...category};
     });
   }
 
   deleteCategory(categoryId: number): Promise<void> {
     const category = new CategoryModel();
     category.id = categoryId;
-    return this.delete(category)
+    return this.delete(category);
   }
 
   verifyIfExistsCategory(categoryId: number): Promise<boolean> {
